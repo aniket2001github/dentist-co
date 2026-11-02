@@ -348,14 +348,64 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
 .pay-big .o{color:transparent;-webkit-text-stroke:1.2px var(--ink)}
 .pay-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(30px,5vw,80px);margin-top:clamp(40px,5vw,70px);align-items:start}
 @media(max-width:900px){.pay-grid{grid-template-columns:1fr}}
-.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-@media(max-width:480px){.tiles{grid-template-columns:1fr}}
-.tile{position:relative;top:0;padding:24px;border-radius:22px;background:var(--paper);border:1px solid var(--line);display:grid;gap:30px;transition:background .5s,top .5s var(--ease)}
-.tile:hover{background:var(--blue-mist);top:-4px}
-.tile .ti{width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--ivory);display:grid;place-items:center}
-.tile .ti svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.tile b{font-family:var(--f-display);font-weight:500;font-size:1.5rem;line-height:1.1;display:block}
-.tile small{display:block;margin-top:6px;font-size:.82rem;color:var(--mute);line-height:1.55}
+.pay-room{position:relative;margin-top:clamp(40px,5vw,70px);border-radius:var(--r-room);background:var(--ivory-2);overflow:hidden;isolation:isolate}
+.pay-room::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(52,52,52,.09) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 75% 50%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 75% 50%,#000,transparent 75%)}
+.pay-room .glow{position:absolute;right:8%;top:50%;width:min(560px,60vw);aspect-ratio:1;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle,rgba(143,175,199,.55),rgba(143,175,199,0) 65%);filter:blur(30px);z-index:-1;animation:breathe 7s ease-in-out infinite}
+.pay-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:center;padding:clamp(28px,5vw,72px)}
+@media(max-width:960px){.pay-in{grid-template-columns:1fr}}
+.pnav{display:grid;margin-top:30px;border-top:1px solid var(--line)}
+.pnav button{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;text-align:left;padding:16px 4px;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease)}
+.pnav .n{font-size:.68rem;font-weight:600;letter-spacing:.14em;color:var(--mute);font-variant-numeric:tabular-nums}
+.pnav b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.4rem,2vw,1.75rem);line-height:1.1;color:var(--ink-soft);transition:color .4s}
+.pnav small{display:block;font-size:.8rem;color:var(--mute);max-height:0;overflow:hidden;opacity:0;transition:max-height .6s var(--ease),opacity .5s,margin .5s;margin-top:0}
+.pnav .pi{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .4s,color .4s,transform .6s var(--ease)}
+.pnav .pi svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.pnav .bar{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left}
+.pnav button.on b{color:var(--ink)}
+.pnav button.on small{max-height:3em;opacity:1;margin-top:4px}
+.pnav button.on .pi{background:var(--ink);color:var(--ivory);transform:rotate(-45deg)}
+.pnav button.on .n{color:var(--blue-deep)}
+.pnav button.on .bar.run{animation:bar 4.5s linear forwards}
+.pnav button:hover:not(.on){padding-left:12px}
+.pstack{position:relative;height:clamp(320px,34vw,430px);perspective:1600px;display:grid;place-items:center;touch-action:pan-y}
+.pcard{--sx:50%;--sy:30%;position:absolute;left:50%;top:50%;width:min(92%,440px);aspect-ratio:1.58;margin:calc(min(92%,440px) / -3.16) 0 0 calc(min(92%,440px) / -2);border-radius:24px;padding:clamp(18px,2.2vw,26px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;cursor:pointer;box-shadow:0 30px 60px -28px rgba(38,38,38,.55),0 2px 0 rgba(255,255,255,.35) inset;will-change:transform;user-select:none}
+.pcard::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--sx) var(--sy),rgba(255,255,255,.28),transparent 45%);pointer-events:none;mix-blend-mode:soft-light}
+.pcard.c0{background:linear-gradient(135deg,#3d3d3c,#262626);color:var(--ivory)}
+.pcard.c1{background:linear-gradient(135deg,#a6c0d3,#7f9fb8);color:var(--night)}
+.pcard.c2{background:linear-gradient(135deg,#fdfcf9,#efede6);color:var(--ink);border:1px solid var(--line)}
+.pcard.c3{background:linear-gradient(135deg,#e7eef4,#cfdde8);color:var(--ink)}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.pc-brand{display:flex;align-items:center;gap:8px}
+.pc-brand .mk-tooth{width:18px}
+.pc-brand .mk-word{width:82px}
+.pc-ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,currentColor 10%,transparent);border:1px solid color-mix(in srgb,currentColor 18%,transparent)}
+.pc-ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pc-mid{display:flex;align-items:center;gap:14px}
+.chip{width:46px;height:34px;border-radius:7px;background:linear-gradient(135deg,#e9dcb8,#c6b07a);position:relative;overflow:hidden;flex:none}
+.chip::before{content:"";position:absolute;inset:7px 0;border-block:1px solid rgba(80,60,20,.35)}
+.chip::after{content:"";position:absolute;inset:0 15px;border-inline:1px solid rgba(80,60,20,.35)}
+.digits{font-family:var(--f-body);font-weight:500;letter-spacing:.22em;font-size:clamp(.78rem,1.1vw,.95rem);font-variant-numeric:tabular-nums;opacity:.85}
+.segs{display:flex;gap:6px;flex:1}
+.segs i{flex:1;height:6px;border-radius:99px;background:color-mix(in srgb,currentColor 14%,transparent);position:relative;overflow:hidden}
+.segs i::after{content:"";position:absolute;inset:0;background:var(--blue-deep);transform:scaleX(0);transform-origin:left}
+.pcard.front .segs i::after{animation:seg 3.2s var(--ease) infinite}
+.pcard.front .segs i:nth-child(2)::after{animation-delay:.35s}.pcard.front .segs i:nth-child(3)::after{animation-delay:.7s}.pcard.front .segs i:nth-child(4)::after{animation-delay:1.05s}
+@keyframes seg{0%{transform:scaleX(0)}30%,80%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+.spark{flex:1;height:38px}
+.spark path{fill:none;stroke:var(--blue-deep);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.spark .ar2{fill:url(#sg);stroke:none;opacity:0;transition:opacity .8s .6s}
+.pcard.front .spark path{animation:drawl 2.4s var(--ease) forwards}
+.pcard.front .spark .ar2{opacity:1}
+@keyframes drawl{to{stroke-dashoffset:0}}
+.seal2{position:relative;width:46px;height:46px;flex:none}
+.seal2 svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.3}
+.pcard.front .seal2 .ck{stroke-dasharray:1;stroke-dashoffset:1;animation:drawl 1.2s .3s var(--ease) forwards}
+.seal2 .rot{transform-origin:23px 23px;animation:spin 12s linear infinite}
+.pc-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.pc-bot b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem,2.6vw,2.3rem);line-height:1;display:block}
+.pc-bot small{display:block;font-size:.76rem;opacity:.75;margin-top:6px;max-width:28ch;line-height:1.45}
+.pc-bot .pg{font-size:.64rem;font-weight:600;letter-spacing:.16em;opacity:.6;white-space:nowrap}
+.pstack .hint{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
 
 .promo{display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:clamp(30px,5vw,80px);align-items:center;padding:clamp(40px,6vw,90px)}
 @media(max-width:860px){.promo{grid-template-columns:1fr;justify-items:start}}
@@ -743,18 +793,46 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
 
   <section class="sec pay">
     <div class="pay-big" aria-hidden="true"><div class="pb1">Smile <em>now,</em></div><div class="pb2" style="padding-left:12vw"><span class="o">pay</span> later</div></div>
-    <div class="wrap pay-grid">
-      <div>
-        <span class="label eyebrow">Payment plans</span>
-        <h2 class="d3" style="margin-top:18px">Smile Now, <em>Pay Later!</em></h2>
-        <p class="lead" style="margin-top:20px">Quality dental care should be accessible. We accept all health funds and major credit cards, with interest-free payment plans available to help make your treatment more manageable.</p>
-        <div style="margin-top:28px"><a href="#contact" class="btn btn-ink mag"><span>Explore Payment Options</span><span class="ar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg></span></a></div>
-      </div>
-      <div class="tiles">
-        <div class="tile"><span class="ti"><svg viewBox="0 0 20 20"><path d="M10 2 3 5v5c0 4 3 7 7 8 4-1 7-4 7-8V5z"/><path d="M7 10l2 2 4-4"/></svg></span><div><b>All health funds</b><small>We accept all health funds.</small></div></div>
-        <div class="tile"><span class="ti"><svg viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16M5 13h3"/></svg></span><div><b>Major credit cards</b><small>Pay the way that suits you.</small></div></div>
-        <div class="tile"><span class="ti"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 2"/></svg></span><div><b>Interest-free plans</b><small>Make your treatment more manageable.</small></div></div>
-        <div class="tile"><span class="ti"><svg viewBox="0 0 20 20"><path d="M3 15l4-4 3 3 7-7"/><path d="M13 7h4v4"/></svg></span><div><b>Early Release Super</b><small>You may be eligible to fund your dental treatment.</small></div></div>
+    <div class="wrap">
+      <div class="pay-room on-light">
+        <span class="glow" aria-hidden="true"></span>
+        <div class="pay-in">
+          <div>
+            <span class="label eyebrow">Payment plans</span>
+            <h2 class="d2" style="margin-top:18px">Smile Now, <em>Pay Later!</em></h2>
+            <p class="lead" style="margin-top:20px">Quality dental care should be accessible. We accept all health funds and major credit cards, with interest-free payment plans available to help make your treatment more manageable.</p>
+            <div class="pnav" id="pnav" role="tablist" aria-label="Payment options">
+              <button class="on" role="tab" aria-selected="true" data-i="0"><span class="n">01</span><span><b>All health funds</b><small>We accept all health funds.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
+              <button role="tab" aria-selected="false" data-i="1"><span class="n">02</span><span><b>Major credit cards</b><small>Pay the way that suits you.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
+              <button role="tab" aria-selected="false" data-i="2"><span class="n">03</span><span><b>Interest-free plans</b><small>Spread your treatment into manageable payments.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
+              <button role="tab" aria-selected="false" data-i="3"><span class="n">04</span><span><b>Early Release Super</b><small>You may be eligible to fund your dental treatment.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
+            </div>
+            <div style="margin-top:30px"><a href="#contact" class="btn btn-ink mag"><span>Explore Payment Options</span><span class="ar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg></span></a></div>
+          </div>
+          <div class="pstack" id="pstack" aria-hidden="true">
+            <div class="pcard c0" data-i="0">
+              <div class="pc-top"><span class="pc-brand"><span class="mk mk-tooth"></span><span class="mk mk-word"></span></span><span class="pc-ic"><svg viewBox="0 0 20 20"><path d="M10 2 3 5v5c0 4 3 7 7 8 4-1 7-4 7-8V5z"/><path d="M7 10l2 2 4-4"/></svg></span></div>
+              <div class="pc-mid"><span class="seal2"><svg viewBox="0 0 46 46"><circle class="rot" cx="23" cy="23" r="21" stroke-dasharray="3 4"/><path class="ck" pathLength="1" d="M15 23.5l5.5 5.5L31 18"/></svg></span><span class="digits">HEALTH FUND · CLAIM</span></div>
+              <div class="pc-bot"><span><b>All health funds</b><small>We accept all health funds.</small></span><span class="pg">01 / 04</span></div>
+            </div>
+            <div class="pcard c1" data-i="1">
+              <div class="pc-top"><span class="pc-brand"><span class="mk mk-tooth"></span><span class="mk mk-word"></span></span><span class="pc-ic"><svg viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 8h16M5 13h3"/></svg></span></div>
+              <div class="pc-mid"><span class="chip"></span><span class="digits">•••• •••• •••• 2002</span></div>
+              <div class="pc-bot"><span><b>Major credit cards</b><small>Pay the way that suits you.</small></span><span class="pg">02 / 04</span></div>
+            </div>
+            <div class="pcard c2" data-i="2">
+              <div class="pc-top"><span class="pc-brand"><span class="mk mk-tooth"></span><span class="mk mk-word"></span></span><span class="pc-ic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/><path d="M10 5v5l3 2"/></svg></span></div>
+              <div class="pc-mid"><span class="segs"><i></i><i></i><i></i><i></i></span><span class="digits">INTEREST-FREE</span></div>
+              <div class="pc-bot"><span><b>Interest-free plans</b><small>Spread your treatment into manageable payments.</small></span><span class="pg">03 / 04</span></div>
+            </div>
+            <div class="pcard c3" data-i="3">
+              <div class="pc-top"><span class="pc-brand"><span class="mk mk-tooth"></span><span class="mk mk-word"></span></span><span class="pc-ic"><svg viewBox="0 0 20 20"><path d="M3 15l4-4 3 3 7-7"/><path d="M13 7h4v4"/></svg></span></div>
+              <div class="pc-mid"><svg class="spark" viewBox="0 0 200 38" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d819d" stop-opacity=".35"/><stop offset="1" stop-color="#5d819d" stop-opacity="0"/></linearGradient></defs><path class="ar2" d="M2 32 C30 30 45 24 70 25 S110 14 135 15 170 6 198 4 V38 H2Z"/><path pathLength="1" d="M2 32 C30 30 45 24 70 25 S110 14 135 15 170 6 198 4"/></svg><span class="digits">SUPER</span></div>
+              <div class="pc-bot"><span><b>Early Release Super</b><small>You may be eligible to fund your dental treatment.</small></span><span class="pg">04 / 04</span></div>
+            </div>
+            <span class="hint">Tap the card to flip through</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1279,7 +1357,9 @@ const INIT = {
     gsap.fromTo('.watermark', {xPercent:-40}, {xPercent:-60, ease:'none', scrollTrigger:{trigger:orb, start:'top bottom', end:'bottom top', scrub:true}});
     gsap.fromTo('.pb1', {x:'-8vw'}, {x:'4vw', ease:'none', scrollTrigger:{trigger:'.pay', start:'top bottom', end:'bottom top', scrub:true}});
     gsap.fromTo('.pb2', {x:'6vw'}, {x:'-10vw', ease:'none', scrollTrigger:{trigger:'.pay', start:'top bottom', end:'bottom top', scrub:true}});
-    gsap.from('.tile', {y:50, opacity:0, duration:.9, stagger:.1, ease:'power3.out', scrollTrigger:{trigger:'.tiles', start:'top 85%'}});
+    gsap.from('#pstack', {y:120, rotateX:30, opacity:0, duration:1.4, ease:'expo.out', scrollTrigger:{trigger:'.pay-room', start:'top 75%'}});
+    gsap.from('.pnav button', {x:-30, opacity:0, duration:.8, stagger:.08, ease:'power3.out', scrollTrigger:{trigger:'.pnav', start:'top 88%'}});
+    gsap.fromTo('.pay-room', {clipPath:'inset(8% 6% 8% 6% round 60px)'}, {clipPath:'inset(0% 0% 0% 0% round 40px)', ease:'none', scrollTrigger:{trigger:'.pay-room', start:'top 95%', end:'top 40%', scrub:true}});
     gsap.from('.portrait', {scale:.6, rotate:-40, opacity:0, duration:1.5, ease:'expo.out', scrollTrigger:{trigger:'.promo', start:'top 70%'}});
     common(page);
   },
@@ -1459,6 +1539,56 @@ SLIDES.forEach(s => { const i = new Image(); i.src = s.img; });
 $('#hcPrev').addEventListener('click', () => slide(si - 1));
 $('#hcNext').addEventListener('click', () => slide(si + 1));
 slide(0, true);
+
+
+/* ---------- payment card stack ---------- */
+(function(){
+  const stack = $('#pstack'); if (!stack) return;
+  const cards = $$('.pcard', stack), btns = $$('#pnav button');
+  let order = cards.map((_, i) => i), timer = null, visible = false;
+  const POS = n => ({x: n*26, y: -n*24, rotation: n*3.5, scale: 1 - n*.06, opacity: n > 3 ? 0 : 1 - n*.12, zIndex: 10 - n});
+  function layout(animate, leaving){
+    order.forEach((ci, n) => {
+      const c = cards[ci], p = POS(n);
+      c.classList.toggle('front', n === 0);
+      if (!HAS){ c.style.transform = `translate(${p.x}px,${p.y}px) rotate(${p.rotation}deg) scale(${p.scale})`; c.style.zIndex = p.zIndex; return; }
+      if (!animate || RM){ gsap.set(c, p); return; }
+      if (ci === leaving){
+        gsap.timeline()
+          .to(c, {x:'-70%', y:60, rotation:-16, scale:.96, duration:.45, ease:'power2.in'})
+          .set(c, {zIndex:p.zIndex})
+          .to(c, {x:p.x, y:p.y, rotation:p.rotation, scale:p.scale, opacity:p.opacity, duration:.7, ease:'expo.out'});
+      } else gsap.to(c, {...p, duration:.9, ease:'expo.out', delay:.08*n});
+    });
+    const f = order[0];
+    btns.forEach((b, i) => { const on = i === f; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); const bar = $('.bar', b); bar.classList.remove('run'); if (on && visible && !RM){ void bar.offsetWidth; bar.classList.add('run'); } });
+  }
+  function bringTo(i){
+    if (order[0] === i) return;
+    const leaving = order[0];
+    while (order[0] !== i) order.push(order.shift());
+    layout(true, leaving); restart();
+  }
+  const next = () => bringTo(order[1]);
+  function restart(){ clearTimeout(timer); if (visible && !RM) timer = setTimeout(next, 4500); }
+  btns.forEach(b => b.addEventListener('click', () => bringTo(+b.dataset.i)));
+  cards.forEach(c => c.addEventListener('click', () => { if (c.classList.contains('front')) next(); else bringTo(+c.dataset.i); }));
+  // tilt + sheen on the front card
+  stack.addEventListener('pointermove', e => {
+    const f = cards[order[0]], r = f.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width, py = (e.clientY - r.top)/r.height;
+    f.style.setProperty('--sx', px*100 + '%'); f.style.setProperty('--sy', py*100 + '%');
+    if (HAS && !RM) gsap.to(f, {rotationY:(px-.5)*16, rotationX:-(py-.5)*14, duration:.6, ease:'power3.out'});
+  });
+  stack.addEventListener('pointerleave', () => { if (HAS) gsap.to(cards, {rotationY:0, rotationX:0, duration:.9, ease:'expo.out'}); });
+  // swipe on touch
+  let sx = null;
+  stack.addEventListener('pointerdown', e => { sx = e.clientX; });
+  stack.addEventListener('pointerup', e => { if (sx !== null && Math.abs(e.clientX - sx) > 40) next(); sx = null; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; layout(false); restart(); }), {threshold:.4}).observe(stack);
+  else { visible = true; restart(); }
+  layout(false);
+})();
 
 /* ---------- Sydney time ---------- */
 function sydney(){
