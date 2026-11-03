@@ -1,5 +1,12 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
 <meta charset="utf-8">
-<title>Dentist &amp; Co Balmain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Balmain Dentist | Dentist &amp; Co">
+<meta property="og:description" content="Dual-accredited dental facility in Balmain, Sydney. Modern Dentistry. Genuine Care.">
+<meta property="og:image" content="img/reception.webp">
+<title>Balmain Dentist | Dentist &amp; Co, Inner West Sydney</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Dentist & Co — dual-accredited dental facility in Balmain, Sydney. Modern Dentistry. Genuine Care.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -623,11 +630,88 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
 .dock .btn .ar{width:24px;height:24px}
 @media(max-width:600px){.dock p .lg{display:none}}
 
+/* ===== FAQ ===== */
+.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,100px);align-items:start}
+@media(max-width:960px){.faq-grid{grid-template-columns:1fr}}
+.faq-side{position:sticky;top:110px;display:grid;justify-items:start}
+@media(max-width:960px){.faq-side{position:static}}
+.fq-search{display:flex;align-items:center;gap:10px;width:100%;max-width:420px;margin-top:30px;padding:0 18px;height:52px;border-radius:999px;border:1px solid var(--line);background:var(--paper);transition:border-color .3s,box-shadow .3s}
+.fq-search:focus-within{border-color:var(--blue-deep);box-shadow:0 0 0 4px rgba(143,175,199,.25)}
+.fq-search svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--mute);stroke-width:1.6;stroke-linecap:round}
+.fq-search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:.92rem;color:var(--ink);outline:none}
+.fq-filters{margin-top:16px}
+.fq-help{margin-top:30px;width:100%;max-width:420px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 16px;align-items:center;padding:22px;border-radius:24px;background:var(--ink);color:var(--ivory)}
+.fq-help .mk-tooth{width:30px;color:var(--blue)}
+.fq-help b{font-family:var(--f-display);font-weight:400;font-size:1.5rem;display:block;line-height:1.1}
+.fq-help span{font-size:.84rem;color:rgba(247,246,242,.72)}
+.fq-help strong{color:var(--ivory);font-weight:600;user-select:all}
+.fq-help .btn{grid-column:1/-1;justify-self:start}
+.fq-list{border-top:1px solid var(--line)}
+.fq{border-bottom:1px solid var(--line);border-radius:0;transition:background .5s,border-radius .5s,border-color .5s}
+.fq[hidden]{display:none!important}
+.fq-q{width:100%;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;text-align:left;padding:clamp(18px,2.2vw,26px) clamp(6px,1.2vw,18px)}
+.fq-n{font-size:.68rem;font-weight:600;letter-spacing:.14em;color:var(--mute);font-variant-numeric:tabular-nums;transition:color .4s}
+.fq-q h3{font-size:clamp(1.35rem,2vw,1.8rem);font-weight:400;line-height:1.2;transition:transform .6s var(--ease)}
+.fq-q:hover h3{transform:translateX(8px)}
+.fq-pm{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);position:relative;display:grid;place-items:center;transition:background .4s,border-color .4s,transform .6s var(--ease)}
+.fq-pm::before,.fq-pm::after{content:"";position:absolute;width:13px;height:1.4px;background:currentColor;transition:transform .5s var(--ease)}
+.fq-pm::after{transform:rotate(90deg)}
+.fq-q:hover .fq-pm{border-color:var(--ink)}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.fq-a > div{overflow:hidden;min-height:0}
+.fq-in{padding:0 clamp(6px,1.2vw,18px) 26px calc(clamp(6px,1.2vw,18px) + 2.2rem + 18px);display:grid;gap:12px;justify-items:start;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .7s var(--ease)}
+@media(max-width:560px){.fq-in{padding-left:clamp(6px,1.2vw,18px)}}
+.fq-in p{color:var(--ink-soft);max-width:60ch}
+.fq-cat{font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-deep);border:1px solid var(--line);padding:.45em .9em;border-radius:999px}
+.fq.open{background:var(--paper);border-radius:22px;border-color:transparent;box-shadow:0 30px 60px -45px rgba(52,52,52,.5)}
+.fq.open .fq-a{grid-template-rows:1fr}
+.fq.open .fq-in{opacity:1;transform:none;transition-delay:.15s}
+.fq.open .fq-n{color:var(--blue-deep)}
+.fq.open .fq-pm{background:var(--ink);border-color:var(--ink);color:var(--ivory);transform:rotate(180deg)}
+.fq.open .fq-pm::after{transform:rotate(0)}
+.fq-empty{display:grid;gap:4px;padding:30px 10px;color:var(--mute)}
+.fq-empty b{font-family:var(--f-display);font-weight:400;font-size:1.6rem;color:var(--ink)}
+
+/* ===== SEO keyword view ===== */
+.kw{border-radius:3px;transition:background .4s}
+body.seo-on .kw{cursor:help;background:linear-gradient(transparent 58%,rgba(143,175,199,.5) 58%,rgba(143,175,199,.5) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+body.seo-on .on-dark .kw,body.seo-on .card.dk .kw{background:linear-gradient(transparent 58%,rgba(143,175,199,.38) 58%,rgba(143,175,199,.38) 92%,transparent 92%)}
+body.seo-on .card.bl .kw{background:linear-gradient(transparent 58%,rgba(247,246,242,.55) 58%,rgba(247,246,242,.55) 92%,transparent 92%)}
+body.seo-on .kw::after{content:attr(data-tag);display:inline-block;margin-left:.35em;padding:2px 5px;border-radius:5px;background:var(--ink);color:var(--ivory);font-family:var(--f-body);font-style:normal;font-weight:600;font-size:9px;letter-spacing:.08em;line-height:1.2;vertical-align:.9em;-webkit-text-fill-color:var(--ivory)}
+body.seo-on .on-dark .kw::after,body.seo-on .card.dk .kw::after{background:var(--blue);color:var(--night);-webkit-text-fill-color:var(--night)}
+body.seo-on .kw:hover,body.seo-on .kw:focus-visible,body.seo-on .kw.tip-on{background:rgba(143,175,199,.45)}
+body.seo-on .giant.kw{background:none;outline:1px dashed var(--blue-deep);outline-offset:8px;position:relative}
+body.seo-on .giant.kw::after{position:absolute;left:0;top:-14px;font-size:11px;padding:3px 7px;vertical-align:0}
+body.seo-on .giant.kw:hover{background:rgba(143,175,199,.12)}
+#seoTip{position:fixed;left:0;top:0;z-index:97;width:min(340px,calc(100vw - 32px));padding:18px;border-radius:20px;background:var(--night);color:var(--ivory);box-shadow:0 30px 60px -20px rgba(0,0,0,.5);pointer-events:none;opacity:0;transform:translateY(8px) scale(.97);transform-origin:50% 100%;transition:opacity .25s,transform .35s var(--ease);font-size:.8rem;line-height:1.55}
+#seoTip.on{opacity:1;transform:none}
+#seoTip .st-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#seoTip .st-tag{font-weight:700;font-size:.72rem;letter-spacing:.06em;background:var(--blue);color:var(--night);padding:3px 8px;border-radius:7px}
+#seoTip .st-role{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(247,246,242,.6)}
+#seoTip .st-kw{font-family:var(--f-display);font-size:1.45rem;line-height:1.15;margin-top:12px;display:block}
+#seoTip .st-int{display:inline-block;margin-top:8px;font-size:.6rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);border:1px solid var(--line-light);border-radius:999px;padding:.35em .8em}
+#seoTip h6{margin:14px 0 4px;font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+#seoTip p{color:rgba(247,246,242,.82)}
+#seoTip .st-note{margin-top:12px;padding-top:10px;border-top:1px solid var(--line-light);font-size:.72rem;color:#e7c9a5}
+.seo-toggle{position:fixed;right:max(16px,env(safe-area-inset-right,0px));text-align:left;bottom:max(16px,calc(env(safe-area-inset-bottom,0px) + 10px));z-index:46;display:flex;align-items:center;gap:12px;padding:8px 14px 8px 8px;border-radius:999px;background:rgba(247,246,242,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(0,0,0,.4);font-size:.72rem;color:var(--ink)}
+.seo-toggle .sw{width:42px;height:24px;border-radius:999px;background:var(--ivory-2);border:1px solid var(--line);position:relative;transition:background .3s}
+.seo-toggle .sw::after{content:"";position:absolute;left:2px;top:2px;width:18px;height:18px;border-radius:50%;background:var(--ink);transition:transform .4s var(--ease),background .3s}
+.seo-toggle[aria-pressed="true"] .sw{background:var(--blue)}
+.seo-toggle[aria-pressed="true"] .sw::after{transform:translateX(18px)}
+.seo-toggle b{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.64rem;display:block}
+.seo-toggle small{color:var(--mute);font-size:.68rem}
+@media(max-width:700px){.seo-toggle{bottom:max(80px,calc(env(safe-area-inset-bottom,0px) + 76px))}.seo-toggle small{display:none}}
+
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 </style>
+</head>
+<body>
 
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dentist", "name": "Dentist & Co", "description": "Dual-accredited dental facility in Balmain, Sydney. Modern Dentistry. Genuine Care.", "url": "https://dentistandco.com.au", "telephone": "+61 2 9810 3044", "email": "info@dentistandco.com.au", "foundingDate": "2002", "address": {"@type": "PostalAddress", "streetAddress": "Suite 1, 3 Montague Street", "addressLocality": "Balmain", "addressRegion": "NSW", "postalCode": "2041", "addressCountry": "AU"}, "areaServed": ["Balmain", "Rozelle", "Birchgrove", "Inner West Sydney"], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "17:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "08:00", "closes": "15:00"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there an emergency dentist in Balmain, Sydney?", "acceptedAnswer": {"@type": "Answer", "text": "If you have a toothache, a chipped or broken tooth, or swelling, call us on 02 9810 3044 as early in the day as you can. Our team will do their best to see you as soon as possible and will tell you what to do in the meantime."}}, {"@type": "Question", "name": "Is your Balmain clinic open on Saturdays?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We are open Monday to Thursday from 8:00 AM to 5:30 PM, and Friday to Saturday from 8:00 AM to 3:00 PM, so you can book a Saturday visit without taking time off work. We are closed on Sundays."}}, {"@type": "Question", "name": "Do you see patients from across the inner west of Sydney?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our clinic is at Suite 1, 3 Montague Street, Balmain, and we welcome patients from Balmain, Rozelle, Birchgrove, Leichhardt and across Sydney\u2019s inner west."}}, {"@type": "Question", "name": "How often should I book a dental check-up and clean?", "acceptedAnswer": {"@type": "Answer", "text": "Many people come in for a check-up and clean every six to twelve months, but the right interval depends on your oral health. At your visit we check your teeth and gums, clean away plaque and tartar, and recommend when to come back."}}, {"@type": "Question", "name": "Am I suitable for dental implants in Sydney?", "acceptedAnswer": {"@type": "Answer", "text": "Dental implants can replace one or more missing teeth, but suitability depends on your gums, jawbone and general health. We use digital implant planning to assess your options. Book a free consultation with Dr Saade to find out whether implants are right for you."}}, {"@type": "Question", "name": "Do you offer teeth whitening in Sydney, including Zoom whitening?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, teeth whitening is part of our cosmetic dentistry. We check your teeth and gums first, then talk you through in-chair Zoom whitening and take-home options so you can choose what suits you."}}, {"@type": "Question", "name": "What can a cosmetic dentist in Balmain help with?", "acceptedAnswer": {"@type": "Answer", "text": "Our clinicians offer personalised cosmetic treatments to improve the colour, shape and overall appearance of your teeth. Every plan starts with a consultation so we understand what you would like to change."}}, {"@type": "Question", "name": "Do you offer Invisalign in Balmain?", "acceptedAnswer": {"@type": "Answer", "text": "We offer clear aligner treatment, a discreet alternative to traditional braces. Ask our team about Invisalign and other clear aligner options at your consultation."}}, {"@type": "Question", "name": "When is wisdom teeth removal needed?", "acceptedAnswer": {"@type": "Answer", "text": "Wisdom teeth can sometimes cause pain, swelling or overcrowding. We assess your wisdom teeth with digital imaging and recommend treatment options based on your individual needs."}}, {"@type": "Question", "name": "What happens during root canal treatment in Balmain?", "acceptedAnswer": {"@type": "Answer", "text": "Root canal treatment removes infection or inflammation from inside a tooth, then cleans, shapes and seals it. The aim is to relieve discomfort and keep your natural tooth. Your dentist explains each step before starting."}}, {"@type": "Question", "name": "How is gum disease treated?", "acceptedAnswer": {"@type": "Answer", "text": "We start with a professional assessment of your gums, then recommend treatment such as a deep clean and a home-care plan to help manage gum disease and protect your teeth long term."}}, {"@type": "Question", "name": "I\u2019m nervous. Do you offer sleep dentistry or IV sedation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. For patients with dental anxiety, or for longer procedures, sedation options may help you feel more relaxed. Tell us how you feel when you book. Our team will listen, explain everything first and go at your pace."}}, {"@type": "Question", "name": "Do you have a kids dentist?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Kids Dentist & Co focuses on helping children feel comfortable at the dentist while building healthy brushing habits. Bringing children in early helps visits feel normal and positive."}}, {"@type": "Question", "name": "Can I use early release of super for dental treatment?", "acceptedAnswer": {"@type": "Answer", "text": "You may be able to release some of your superannuation early to pay for certain dental treatment. Eligibility is decided by the Australian Taxation Office (ATO), not by us. Our team can explain the paperwork and how it fits with your treatment plan."}}, {"@type": "Question", "name": "Do you accept health funds and offer payment plans?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We accept all health funds and major credit cards, and interest-free payment plans are available to help make your treatment more manageable."}}]}</script>
 <div id="loader" aria-hidden="true">
   <div class="lw"><span class="mk mk-tooth"></span><span class="mk mk-word"></span><span class="ln"><i></i></span><span class="yr">Est. 2002 · Balmain</span></div>
 </div>
@@ -665,12 +749,11 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
 <section class="page on-light" data-page="home" id="p-home">
   <section class="gh" id="homeHero">
     <div class="wrap">
-      <h1 class="sr">Balmain Dentist. Genuine Care. Dentist &amp; Co, modern dentistry in Balmain, Sydney</h1>
-      <div class="gh-top">
+            <div class="gh-top">
         <span class="tw" data-typeload="Modern Dentistry.">Modern Dentistry.</span>
         <span class="label mute">Genuine Care · Sydney · Est. 2002</span>
       </div>
-      <div class="giant" data-fit aria-hidden="true"><span class="gi"><span class="gw">Balmain</span><span class="gw">Dentist</span></span></div>
+      <h1 class="giant kw" data-seo="balmain-dentist" tabindex="0" data-fit aria-label="Balmain Dentist"><span class="gi" aria-hidden="true"><span class="gw">Balmain</span><span class="gw">Dentist</span></span></h1>
       <div class="gh-grid">
         <div class="gh-l hfade">
           <p class="lead">Experience advanced dental care in Sydney with expert independent clinicians, innovative technology, and a personalised approach to every smile.</p>
@@ -730,10 +813,10 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
         <div style="display:grid;gap:18px;justify-items:start"><p class="lead" style="max-width:32ch">Advanced solutions. Personalised treatment. Beautiful results.</p><a href="#services" class="tlink">View All Services →</a></div>
       </div>
       <div class="deck" id="deck">
-        <a href="#services" class="card dk tilt"><span class="ic-wrap"><span class="ico" data-ico="cos"></span></span><div><h3>Cosmetic Dentistry</h3><p>Enhance your smile with personalised cosmetic treatments.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
-        <a href="#services" class="card bl tilt"><span class="ic-wrap"><span class="ico" data-ico="imp"></span></span><div><h3>Dental Implants</h3><p>Restore missing teeth with advanced implant solutions.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
-        <a href="#services" class="card tilt"><span class="ic-wrap"><span class="ico" data-ico="ali"></span></span><div><h3>Clear Aligners</h3><p>Straighten your teeth with discreet orthodontic treatment.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
-        <a href="#services" class="card iv tilt"><span class="ic-wrap"><span class="ico" data-ico="wis"></span></span><div><h3>Wisdom Teeth Removal</h3><p>Expert care for comfortable and safe wisdom teeth removal.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
+        <a href="#services" class="card dk tilt"><span class="ic-wrap"><span class="ico" data-ico="cos"></span></span><div><h3><span class="kw" data-seo="cosmetic" tabindex="0">Cosmetic Dentistry</span></h3><p>Enhance your smile with personalised cosmetic treatments.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
+        <a href="#services" class="card bl tilt"><span class="ic-wrap"><span class="ico" data-ico="imp"></span></span><div><h3><span class="kw" data-seo="implants" tabindex="0">Dental Implants</span></h3><p>Restore missing teeth with advanced implant solutions.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
+        <a href="#services" class="card tilt"><span class="ic-wrap"><span class="ico" data-ico="ali"></span></span><div><h3><span class="kw" data-seo="aligners" tabindex="0">Clear Aligners</span></h3><p>Straighten your teeth with discreet orthodontic treatment.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
+        <a href="#services" class="card iv tilt"><span class="ic-wrap"><span class="ico" data-ico="wis"></span></span><div><h3><span class="kw" data-seo="wisdom" tabindex="0">Wisdom Teeth Removal</span></h3><p>Expert care for comfortable and safe wisdom teeth removal.</p></div><span class="go">Explore <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h12M9 3l5 5-5 5"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -805,7 +888,7 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
               <button class="on" role="tab" aria-selected="true" data-i="0"><span class="n">01</span><span><b>All health funds</b><small>We accept all health funds.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
               <button role="tab" aria-selected="false" data-i="1"><span class="n">02</span><span><b>Major credit cards</b><small>Pay the way that suits you.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
               <button role="tab" aria-selected="false" data-i="2"><span class="n">03</span><span><b>Interest-free plans</b><small>Spread your treatment into manageable payments.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
-              <button role="tab" aria-selected="false" data-i="3"><span class="n">04</span><span><b>Early Release Super</b><small>You may be eligible to fund your dental treatment.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
+              <button role="tab" aria-selected="false" data-i="3"><span class="n">04</span><span><b><span class="kw" data-seo="super" tabindex="0">Early Release Super</span></b><small>You may be eligible to fund your dental treatment.</small></span><span class="pi"><svg viewBox="0 0 14 14"><path d="M3 7h8M8 4l3 3-3 3"/></svg></span><span class="bar"></span></button>
             </div>
             <div style="margin-top:30px"><a href="#contact" class="btn btn-ink mag"><span>Explore Payment Options</span><span class="ar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg></span></a></div>
           </div>
@@ -853,6 +936,40 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
         <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="pc" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text><textPath href="#pc">Dental implants · Cosmetic dentistry · Free consultation · </textPath></text></svg>
         <div class="ph"><img src="img/dr-saade.webp" alt="Dr Saade"></div>
         <span class="nm">Dr Saade</span>
+      </div>
+    </div>
+  </section>
+  <section class="sec faq on-light" id="faq">
+    <div class="wrap faq-grid">
+      <div class="faq-side">
+        <span class="label eyebrow">FAQs</span>
+        <h2 class="d2" style="margin-top:18px">Questions about your <em><span class="kw" data-seo="dentist-in-balmain" tabindex="0">dentist in Balmain</span></em></h2>
+        <p class="lead" style="margin-top:20px">Straight answers about appointments, treatments, comfort and cost, so you can book with confidence.</p>
+        <label class="fq-search" for="fq-search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg><input id="fq-search" type="search" placeholder="Search questions, e.g. Saturday" autocomplete="off"></label>
+        <div class="filters fq-filters" role="group" aria-label="Filter questions"><button aria-pressed="true" data-f="all">All<span>15</span></button><button aria-pressed="false" data-f="appt">Appointments<span>4</span></button><button aria-pressed="false" data-f="trt">Treatments<span>7</span></button><button aria-pressed="false" data-f="cmf">Comfort &amp; kids<span>2</span></button><button aria-pressed="false" data-f="pay">Cost &amp; payment<span>2</span></button></div>
+        <div class="fq-help on-dark">
+          <span class="mk mk-tooth"></span>
+          <div><b>Still have a question?</b><span>Call our friendly team on <strong>02 9810 3044</strong></span></div>
+          <a href="#contact" class="btn btn-blue mag"><span>Ask us</span><span class="ar"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg></span></a>
+        </div>
+      </div>
+      <div class="fq-list" id="fqList">
+        <div class="fq" data-c="appt"><button class="fq-q" aria-expanded="false" id="fqb1" aria-controls="fqa1"><span class="fq-n">01</span><h3>Is there an <span class="kw" data-seo="emergency" tabindex="0">emergency dentist in Balmain, Sydney</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa1" role="region" aria-labelledby="fqb1"><div><div class="fq-in"><span class="fq-cat">Appointments</span><p>If you have a toothache, a chipped or broken tooth, or swelling, call us on 02 9810 3044 as early in the day as you can. Our team will do their best to see you as soon as possible and will tell you what to do in the meantime.</p></div></div></div></div>
+        <div class="fq" data-c="appt"><button class="fq-q" aria-expanded="false" id="fqb2" aria-controls="fqa2"><span class="fq-n">02</span><h3>Is your Balmain clinic <span class="kw" data-seo="saturday" tabindex="0">open on Saturdays</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa2" role="region" aria-labelledby="fqb2"><div><div class="fq-in"><span class="fq-cat">Appointments</span><p>Yes. We are open Monday to Thursday from 8:00 AM to 5:30 PM, and Friday to Saturday from 8:00 AM to 3:00 PM, so you can book a Saturday visit without taking time off work. We are closed on Sundays.</p></div></div></div></div>
+        <div class="fq" data-c="appt"><button class="fq-q" aria-expanded="false" id="fqb3" aria-controls="fqa3"><span class="fq-n">03</span><h3>Do you see patients from across the <span class="kw" data-seo="inner-west" tabindex="0">inner west of Sydney</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa3" role="region" aria-labelledby="fqb3"><div><div class="fq-in"><span class="fq-cat">Appointments</span><p>Yes. Our clinic is at Suite 1, 3 Montague Street, Balmain, and we welcome patients from Balmain, Rozelle, Birchgrove, Leichhardt and across Sydney’s inner west.</p></div></div></div></div>
+        <div class="fq" data-c="appt"><button class="fq-q" aria-expanded="false" id="fqb4" aria-controls="fqa4"><span class="fq-n">04</span><h3>How often should I book a <span class="kw" data-seo="checkup" tabindex="0">dental check-up and clean</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa4" role="region" aria-labelledby="fqb4"><div><div class="fq-in"><span class="fq-cat">Appointments</span><p>Many people come in for a check-up and clean every six to twelve months, but the right interval depends on your oral health. At your visit we check your teeth and gums, clean away plaque and tartar, and recommend when to come back.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb5" aria-controls="fqa5"><span class="fq-n">05</span><h3>Am I suitable for <span class="kw" data-seo="implants" tabindex="0">dental implants in Sydney</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa5" role="region" aria-labelledby="fqb5"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>Dental implants can replace one or more missing teeth, but suitability depends on your gums, jawbone and general health. We use digital implant planning to assess your options. Book a free consultation with Dr Saade to find out whether implants are right for you.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb6" aria-controls="fqa6"><span class="fq-n">06</span><h3>Do you offer <span class="kw" data-seo="whitening" tabindex="0">teeth whitening in Sydney</span>, including <span class="kw" data-seo="zoom" tabindex="0">Zoom whitening</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa6" role="region" aria-labelledby="fqb6"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>Yes, teeth whitening is part of our cosmetic dentistry. We check your teeth and gums first, then talk you through in-chair Zoom whitening and take-home options so you can choose what suits you.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb7" aria-controls="fqa7"><span class="fq-n">07</span><h3>What can a <span class="kw" data-seo="cosmetic" tabindex="0">cosmetic dentist in Balmain</span> help with?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa7" role="region" aria-labelledby="fqb7"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>Our clinicians offer personalised cosmetic treatments to improve the colour, shape and overall appearance of your teeth. Every plan starts with a consultation so we understand what you would like to change.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb8" aria-controls="fqa8"><span class="fq-n">08</span><h3>Do you offer <span class="kw" data-seo="invisalign" tabindex="0">Invisalign in Balmain</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa8" role="region" aria-labelledby="fqb8"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>We offer clear aligner treatment, a discreet alternative to traditional braces. Ask our team about Invisalign and other clear aligner options at your consultation.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb9" aria-controls="fqa9"><span class="fq-n">09</span><h3>When is <span class="kw" data-seo="wisdom" tabindex="0">wisdom teeth removal</span> needed?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa9" role="region" aria-labelledby="fqb9"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>Wisdom teeth can sometimes cause pain, swelling or overcrowding. We assess your wisdom teeth with digital imaging and recommend treatment options based on your individual needs.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb10" aria-controls="fqa10"><span class="fq-n">10</span><h3>What happens during <span class="kw" data-seo="rct" tabindex="0">root canal treatment in Balmain</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa10" role="region" aria-labelledby="fqb10"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>Root canal treatment removes infection or inflammation from inside a tooth, then cleans, shapes and seals it. The aim is to relieve discomfort and keep your natural tooth. Your dentist explains each step before starting.</p></div></div></div></div>
+        <div class="fq" data-c="trt"><button class="fq-q" aria-expanded="false" id="fqb11" aria-controls="fqa11"><span class="fq-n">11</span><h3>How is <span class="kw" data-seo="gum" tabindex="0">gum disease</span> treated?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa11" role="region" aria-labelledby="fqb11"><div><div class="fq-in"><span class="fq-cat">Treatments</span><p>We start with a professional assessment of your gums, then recommend treatment such as a deep clean and a home-care plan to help manage gum disease and protect your teeth long term.</p></div></div></div></div>
+        <div class="fq" data-c="cmf"><button class="fq-q" aria-expanded="false" id="fqb12" aria-controls="fqa12"><span class="fq-n">12</span><h3>I’m nervous. Do you offer <span class="kw" data-seo="sleep" tabindex="0">sleep dentistry</span> or <span class="kw" data-seo="iv" tabindex="0">IV sedation</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa12" role="region" aria-labelledby="fqb12"><div><div class="fq-in"><span class="fq-cat">Comfort & kids</span><p>Yes. For patients with dental anxiety, or for longer procedures, sedation options may help you feel more relaxed. Tell us how you feel when you book. Our team will listen, explain everything first and go at your pace.</p></div></div></div></div>
+        <div class="fq" data-c="cmf"><button class="fq-q" aria-expanded="false" id="fqb13" aria-controls="fqa13"><span class="fq-n">13</span><h3>Do you have a <span class="kw" data-seo="kids" tabindex="0">kids dentist</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa13" role="region" aria-labelledby="fqb13"><div><div class="fq-in"><span class="fq-cat">Comfort & kids</span><p>Yes. Kids Dentist &amp; Co focuses on helping children feel comfortable at the dentist while building healthy brushing habits. Bringing children in early helps visits feel normal and positive.</p></div></div></div></div>
+        <div class="fq" data-c="pay"><button class="fq-q" aria-expanded="false" id="fqb14" aria-controls="fqa14"><span class="fq-n">14</span><h3>Can I use <span class="kw" data-seo="super" tabindex="0">early release of super for dental treatment</span>?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa14" role="region" aria-labelledby="fqb14"><div><div class="fq-in"><span class="fq-cat">Cost & payment</span><p>You may be able to release some of your superannuation early to pay for certain dental treatment. Eligibility is decided by the Australian Taxation Office (ATO), not by us. Our team can explain the paperwork and how it fits with your treatment plan.</p></div></div></div></div>
+        <div class="fq" data-c="pay"><button class="fq-q" aria-expanded="false" id="fqb15" aria-controls="fqa15"><span class="fq-n">15</span><h3>Do you accept health funds and offer payment plans?</h3><span class="fq-pm" aria-hidden="true"></span></button><div class="fq-a" id="fqa15" role="region" aria-labelledby="fqb15"><div><div class="fq-in"><span class="fq-cat">Cost & payment</span><p>Yes. We accept all health funds and major credit cards, and interest-free payment plans are available to help make your treatment more manageable.</p></div></div></div></div>
+        <div class="fq-empty" id="fqEmpty" hidden><b>No questions match that search.</b><span>Call us on 02 9810 3044 and we’ll answer it for you.</span></div>
       </div>
     </div>
   </section>
@@ -1000,14 +1117,14 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
         </div>
       </div>
       <div class="sgrid" id="sgrid">
-        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="cos"></span></span><span class="tag">Cosmetic</span></div><div><h3>Cosmetic Dentistry</h3><h4>Create the Smile You've Always Wanted</h4></div><p>Enhance the appearance of your smile with personalised cosmetic dental treatments. Our clinicians combine expertise and modern techniques to help improve the colour, shape, and overall appearance of your teeth.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="imp"></span></span><span class="tag">Restorative</span></div><div><h3>Dental Implants</h3><h4>Restore Your Smile with Confidence</h4></div><p>Replace missing teeth with advanced dental implant solutions. Our team uses modern digital planning and implant technology to support precise, personalised treatment.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="ali"></span></span><span class="tag">Orthodontic</span></div><div><h3>Clear Aligners</h3><h4>A Straighter Smile, Discreetly</h4></div><p>Achieve a more aligned smile with clear aligner treatments. Designed to be discreet and convenient, clear aligners offer an alternative to traditional orthodontic appliances.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="wis"></span></span><span class="tag">Surgical</span></div><div><h3>Wisdom Teeth Removal</h3><h4>Expert Care for Wisdom Teeth</h4></div><p>Wisdom teeth can sometimes cause pain, swelling, or overcrowding. Our dental professionals provide assessment and treatment options based on your individual needs.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="gum"></span></span><span class="tag">Periodontal</span></div><div><h3>Gum Disease Treatment</h3><h4>Protect Your Gum Health</h4></div><p>Healthy gums are essential for maintaining healthy teeth. We provide professional assessment and treatment to help manage gum disease and support long-term oral health.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="rct"></span></span><span class="tag">Endodontic</span></div><div><h3>Root Canal Therapy</h3><h4>Relieve Discomfort. Preserve Your Natural Tooth.</h4></div><p>Root canal therapy helps treat infection or inflammation inside a tooth, with the aim of preserving your natural tooth and restoring its function.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="cmf"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="slp"></span></span><span class="tag">Comfort</span></div><div><h3>Sleep Dentistry</h3><h4>Relaxed Dental Care for Greater Comfort</h4></div><p>For patients who experience dental anxiety or require additional support during treatment, sleep dentistry options may help make dental procedures more comfortable.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
-        <article class="sv" data-c="cmf"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="kid"></span></span><span class="tag">Family</span></div><div><h3>Kids Dentist &amp; Co</h3><h4>Building Healthy Smiles from Childhood</h4></div><p>We believe positive dental experiences start early. Our approach focuses on helping children feel comfortable while supporting healthy oral hygiene habits.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="cos"></span></span><span class="tag">Cosmetic</span></div><div><h3><span class="kw" data-seo="cosmetic" tabindex="0">Cosmetic Dentistry</span></h3><h4>Create the Smile You've Always Wanted</h4></div><p>Enhance the appearance of your smile with personalised cosmetic dental treatments. Our clinicians combine expertise and modern techniques to help improve the colour, shape, and overall appearance of your teeth.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="imp"></span></span><span class="tag">Restorative</span></div><div><h3><span class="kw" data-seo="implants-balmain" tabindex="0">Dental Implants</span></h3><h4>Restore Your Smile with Confidence</h4></div><p>Replace missing teeth with advanced dental implant solutions. Our team uses modern digital planning and implant technology to support precise, personalised treatment.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="cos"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="ali"></span></span><span class="tag">Orthodontic</span></div><div><h3><span class="kw" data-seo="aligners" tabindex="0">Clear Aligners</span></h3><h4>A Straighter Smile, Discreetly</h4></div><p>Achieve a more aligned smile with clear aligner treatments. Designed to be discreet and convenient, clear aligners offer an alternative to traditional orthodontic appliances.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="wis"></span></span><span class="tag">Surgical</span></div><div><h3><span class="kw" data-seo="wisdom" tabindex="0">Wisdom Teeth Removal</span></h3><h4>Expert Care for Wisdom Teeth</h4></div><p>Wisdom teeth can sometimes cause pain, swelling, or overcrowding. Our dental professionals provide assessment and treatment options based on your individual needs.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="gum"></span></span><span class="tag">Periodontal</span></div><div><h3><span class="kw" data-seo="gum" tabindex="0">Gum Disease Treatment</span></h3><h4>Protect Your Gum Health</h4></div><p>Healthy gums are essential for maintaining healthy teeth. We provide professional assessment and treatment to help manage gum disease and support long-term oral health.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="trt"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="rct"></span></span><span class="tag">Endodontic</span></div><div><h3><span class="kw" data-seo="rct" tabindex="0">Root Canal Therapy</span></h3><h4>Relieve Discomfort. Preserve Your Natural Tooth.</h4></div><p>Root canal therapy helps treat infection or inflammation inside a tooth, with the aim of preserving your natural tooth and restoring its function.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="cmf"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="slp"></span></span><span class="tag">Comfort</span></div><div><h3><span class="kw" data-seo="sleep" tabindex="0">Sleep Dentistry</span></h3><h4>Relaxed Dental Care for Greater Comfort</h4></div><p>For patients who experience dental anxiety or require additional support during treatment, sleep dentistry options may help make dental procedures more comfortable.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
+        <article class="sv" data-c="cmf"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="kid"></span></span><span class="tag">Family</span></div><div><h3><span class="kw" data-seo="kids" tabindex="0">Kids Dentist &amp; Co</span></h3><h4>Building Healthy Smiles from Childhood</h4></div><p>We believe positive dental experiences start early. Our approach focuses on helping children feel comfortable while supporting healthy oral hygiene habits.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
         <article class="sv" data-c="cmf"><div class="sv-top"><span class="ibox"><span class="ico" data-ico="anx"></span></span><span class="tag">Comfort</span></div><div><h3>For Anxious Patients</h3><h4>Gentle Care. A More Comfortable Experience.</h4></div><p>We understand that visiting the dentist can be stressful for some patients. Our team aims to create a welcoming, supportive environment where your concerns are heard and your comfort is prioritised.</p><a href="#contact" class="tlink">Book a consultation →</a></article>
       </div>
     </div>
@@ -1073,7 +1190,7 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
         <div>
           <div class="hours">
             <span class="label" style="color:var(--blue)">Opening hours</span>
-            <h3 class="d3" style="margin-top:12px">Weekdays &amp; <em style="color:var(--blue)">Saturdays</em></h3>
+            <h3 class="d3" style="margin-top:12px">Weekdays &amp; <em style="color:var(--blue)"><span class="kw" data-seo="saturday" tabindex="0">Saturdays</span></em></h3>
             <table id="hoursT">
               <tr data-d="1,2,3,4"><td>Monday – Thursday</td><td>8:00 AM – 5:30 PM</td></tr>
               <tr data-d="5,6"><td>Friday – Saturday</td><td>8:00 AM – 3:00 PM</td></tr>
@@ -1176,6 +1293,8 @@ body.reveal .ftr{position:sticky;bottom:0;z-index:1;border-radius:0;margin-top:0
   </div>
 </footer>
 
+<button class="seo-toggle" id="seoToggle" aria-pressed="true" title="Show or hide SEO keyword highlights"><span class="sw" aria-hidden="true"></span><span><b>SEO keywords</b><small id="seoCount">Hover a highlight to see why</small></span></button>
+<div id="seoTip" role="tooltip" aria-hidden="true"></div>
 <div class="dock" id="dock">
   <span class="mk mk-tooth"></span>
   <p><b>Free consultation</b><span class="lg"> · implants &amp; cosmetic with Dr Saade</span></p>
@@ -1195,6 +1314,7 @@ const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 const PAGES = ['home','about','services','contact'];
 const NAMES = {home:'Home', about:'About Us', services:'Services', contact:'Contact'};
+const TITLES = {home:'Balmain Dentist | Dentist & Co, Inner West Sydney', about:'About Our Balmain Dental Clinic | Dentist & Co', services:'Dental Services in Balmain | Implants, Cosmetic & More | Dentist & Co', contact:'Contact Your Balmain Dentist | Open Saturdays | Dentist & Co'};
 let current = null, ctx = null, busy = false, booted = false;
 const safe = fn => { try { fn(); } catch(e){ console.error(e); } };
 
@@ -1361,6 +1481,8 @@ const INIT = {
     gsap.from('.pnav button', {x:-30, opacity:0, duration:.8, stagger:.08, ease:'power3.out', scrollTrigger:{trigger:'.pnav', start:'top 88%'}});
     gsap.fromTo('.pay-room', {clipPath:'inset(8% 6% 8% 6% round 60px)'}, {clipPath:'inset(0% 0% 0% 0% round 40px)', ease:'none', scrollTrigger:{trigger:'.pay-room', start:'top 95%', end:'top 40%', scrub:true}});
     gsap.from('.portrait', {scale:.6, rotate:-40, opacity:0, duration:1.5, ease:'expo.out', scrollTrigger:{trigger:'.promo', start:'top 70%'}});
+    gsap.from('#fqList .fq', {y:50, opacity:0, duration:.9, stagger:.06, ease:'power3.out', scrollTrigger:{trigger:'#fqList', start:'top 85%'}});
+    gsap.from('.fq-help', {y:40, opacity:0, scale:.96, duration:1, ease:'power3.out', scrollTrigger:{trigger:'.fq-help', start:'top 92%'}});
     common(page);
   },
   about(page){
@@ -1414,7 +1536,7 @@ function show(name, toId){
   PAGES.forEach(p => { $('#p-' + p).hidden = (p !== name); });
   current = name;
   setNav(name);
-  document.title = name === 'home' ? 'Dentist & Co Balmain' : NAMES[name] + ' · Dentist & Co Balmain';
+  document.title = TITLES[name] || 'Dentist & Co Balmain';
   closeMenu();
   window.scrollTo(0, 0);
   fit();
@@ -1427,6 +1549,7 @@ function show(name, toId){
   }
   checkReveal();
   onScroll();
+  if (window.__seoCount) window.__seoCount();
   if (toId) setTimeout(() => scrollToId(toId), 500);
 }
 
@@ -1590,6 +1713,139 @@ slide(0, true);
   layout(false);
 })();
 
+
+/* ---------- FAQ ---------- */
+(function(){
+  const list = $('#fqList'); if (!list) return;
+  const items = $$('.fq', list), empty = $('#fqEmpty'), search = $('#fq-search');
+  let cat = 'all';
+  function toggle(it, open){
+    it.classList.toggle('open', open);
+    $('.fq-q', it).setAttribute('aria-expanded', open);
+  }
+  items.forEach(it => $('.fq-q', it).addEventListener('click', () => {
+    const open = !it.classList.contains('open');
+    items.forEach(x => { if (x !== it) toggle(x, false); });
+    toggle(it, open);
+    if (HAS) setTimeout(() => ScrollTrigger.refresh(), 750);
+  }));
+  function apply(){
+    const q = (search.value || '').trim().toLowerCase();
+    const vis = [];
+    items.forEach(it => {
+      const show = (cat === 'all' || it.dataset.c === cat) && (!q || it.textContent.toLowerCase().includes(q));
+      it.hidden = !show; if (show) vis.push(it); else toggle(it, false);
+    });
+    empty.hidden = vis.length > 0;
+    if (ANIM && vis.length) gsap.fromTo(vis, {y:24, opacity:0}, {y:0, opacity:1, duration:.55, stagger:.05, ease:'power3.out', overwrite:true});
+    if (HAS) setTimeout(() => ScrollTrigger.refresh(), 100);
+  }
+  $$('.fq-filters button').forEach(b => b.addEventListener('click', () => {
+    $$('.fq-filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    cat = b.dataset.f; apply();
+  }));
+  let st; search.addEventListener('input', () => { clearTimeout(st); st = setTimeout(apply, 120); });
+  toggle(items[0], true);
+})();
+
+/* ---------- SEO keyword tooltips ---------- */
+const SEO = {
+  'balmain-dentist': {kw:'Balmain dentist', intent:'Local · ready to book', why:'The main search locals type. Putting it in the H1 tells Google this whole page is about a dentist in Balmain, and it matches the suburb on the Google Business Profile, which helps the practice show in the local Map Pack where most local clicks happen.'},
+  'dentist-in-balmain': {kw:'Dentist in Balmain', intent:'Local · ready to book', why:'A second way people phrase the same search. Using this wording in a section heading covers both phrasings naturally, without repeating the H1 word for word (which can look like keyword stuffing).'},
+  'emergency': {kw:'emergency dentist in Balmain Sydney', intent:'Urgent · books today', why:'People in pain book the same day, so these are the most valuable visitors. Emergency dentist clicks are among the most expensive on Google Ads in Sydney, so ranking for it organically saves a lot of ad spend.'},
+  'saturday': {kw:'Dentist open Saturday Balmain', intent:'Local · convenience', why:'Working people who can’t take time off search for weekend hours. The clinic really is open Saturdays, so saying it in a heading wins searches that weekday-only clinics can’t. Keep it matching the Google Business Profile hours.'},
+  'inner-west': {kw:'dentist inner west Sydney', intent:'Regional · comparing clinics', why:'Widens the catchment beyond Balmain to Rozelle, Birchgrove, Leichhardt and nearby suburbs. Regional searches are dominated by corporate chains, so a clear inner west answer helps the independent clinic appear too.'},
+  'checkup': {kw:'dental check up and clean (Balmain)', intent:'Routine · new patients', why:'The most common first booking. A new patient who comes in for a check-up and clean is likely to return for other treatment, so it is the main entry point for new patients. People search for it again every 6 to 12 months.'},
+  'implants': {kw:'dental implants Sydney', intent:'High value · researching', why:'A high-value treatment that people research for weeks. The city-wide keyword catches people still comparing clinics, and pairing it with the free consultation turns that research into a booking.'},
+  'implants-balmain': {kw:'Dental Implants Balmain', intent:'Local · ready to book', why:'The suburb version catches locals who have already decided and want a nearby clinic. Using the city version on the home page and the suburb version here targets both without the two pages competing.'},
+  'whitening': {kw:'teeth whitening in Sydney', intent:'Elective · price-sensitive', why:'An elective treatment people often put off when money is tight. Answering it on the page, close to the payment plans, keeps price-checkers on this site instead of a competitor’s.'},
+  'zoom': {kw:'zoom teeth whitening sydney', intent:'Brand search · knows what they want', why:'Someone searching a brand name has already chosen the treatment, so booking intent is high and competition is lower than for generic whitening.', note:'Keep this only if the clinic offers Zoom whitening.'},
+  'cosmetic': {kw:'cosmetic dentist Balmain', intent:'Elective · comparing clinics', why:'Covers veneers, whitening and smile makeovers in one local search. Using it on treatment headings tells Google which page best answers cosmetic searches in Balmain.', note:'AHPRA rules: no testimonials about results and strict before/after rules, so the page explains the treatment instead of promising outcomes.'},
+  'invisalign': {kw:'Invisalign Balmain', intent:'Brand search · ready to book', why:'Most people search for clear aligners by the brand name. Pairing the brand question with the generic "clear aligners" heading covers both kinds of searcher.', note:'Keep this only if the clinic is an Invisalign provider.'},
+  'aligners': {kw:'Clear Aligners', intent:'Researching options', why:'The generic term for people who don’t know the brand names yet. It sits alongside "Invisalign Balmain" in the FAQs so the site ranks for both.'},
+  'wisdom': {kw:'wisdom teeth removal Sydney', intent:'Pain-driven · books soon', why:'Usually searched when wisdom teeth start to hurt, so people book quickly. A service heading plus an FAQ question gives Google two clear signals that the clinic does this.'},
+  'rct': {kw:'Root Canal Treatment Balmain', intent:'Pain-driven · books soon', why:'Patients search "root canal treatment" while the clinical name is "root canal therapy". Using the patient wording in a heading or question matches what people actually type.'},
+  'gum': {kw:'Gum Disease Treatment', intent:'Health concern · researching', why:'People search this after noticing bleeding or sore gums. Treatment is ongoing, so these patients tend to stay with the practice long term.'},
+  'sleep': {kw:'Sleep Dentistry', intent:'Anxious patients', why:'Fear of the dentist stops many people booking. A clear sleep dentistry heading reassures nervous patients and catches the searches they make before deciding.'},
+  'iv': {kw:'IV sedation dentist Sydney', intent:'Anxious · ready if reassured', why:'A specific sedation search from people who are serious about getting treatment if they feel safe. These searchers are hard for clinics without sedation to win.', note:'Confirm the clinic offers IV sedation before going live.'},
+  'kids': {kw:'kids dentist Sydney', intent:'Families · long-term patients', why:'Parents search for a dentist for their children specifically. Families often book everyone at the same clinic and stay for years, so each family is worth a lot over time.'},
+  'super': {kw:'Early release of super for dental treatment', intent:'Cost · planning big treatment', why:'People research how to pay for implants or major work when money is tight. Answering it plainly builds trust and wins patients who might otherwise put treatment off.', note:'Eligibility is decided by the ATO, so the wording avoids promising approval.'}
+};
+const TAGINFO = {
+  H1: {role:'Main page heading', why:'Each page has one H1. It’s the strongest on-page signal for what the page is about, so it carries the main keyword.'},
+  H2: {role:'Section heading', why:'H2s split the page into topics. Google uses them to understand each section, so they carry the second-most important keywords.'},
+  H3: {role:'Sub-heading', why:'H3s sit under a section, like each service or each FAQ question. They match longer, specific searches, and question-style H3s can show in Google’s "People also ask".'},
+  H4: {role:'Minor heading', why:'Supports the heading above it with related wording.'},
+  TEXT: {role:'Body text', why:'Not a heading, but a natural mention in readable text confirms the topic to Google without overdoing it.'}
+};
+(function(){
+  const tip = $('#seoTip'), tog = $('#seoToggle'), cnt = $('#seoCount');
+  const kws = $$('.kw');
+  kws.forEach(el => {
+    const h = el.matches('h1,h2,h3,h4') ? el : el.closest('h1,h2,h3,h4');
+    el.dataset.tag = h ? h.tagName : 'TEXT';
+    if (el.dataset.tag === 'TEXT') el.dataset.tag = 'Text';
+  });
+  let on = true;
+  try { const v = localStorage.getItem('dc-seo'); if (v === '0') on = false; } catch(e){}
+  function setOn(v){
+    on = v; document.body.classList.toggle('seo-on', on); tog.setAttribute('aria-pressed', on);
+    try { localStorage.setItem('dc-seo', on ? '1' : '0'); } catch(e){}
+    if (!on) hide(); count();
+  }
+  function count(){
+    const page = $('#p-' + (current || 'home'));
+    const n = page ? $$('.kw', page).length : 0;
+    cnt.textContent = on ? `${n} keyword${n===1?'':'s'} on this page · hover to see why` : 'Highlights hidden';
+  }
+  let active = null;
+  function show(el){
+    if (!on) return;
+    const d = SEO[el.dataset.seo]; if (!d) return;
+    const tag = el.dataset.tag, ti = TAGINFO[tag === 'Text' ? 'TEXT' : tag] || TAGINFO.TEXT;
+    const inFaq = !!el.closest('.fq');
+    tip.innerHTML = `<div class="st-top"><span class="st-tag">${tag === 'Text' ? 'Text' : '&lt;' + tag.toLowerCase() + '&gt;'}</span><span class="st-role">${ti.role}</span></div>
+      <span class="st-kw">“${d.kw}”</span><span class="st-int">${d.intent}</span>
+      <h6>Why a ${tag === 'Text' ? 'text mention' : tag}</h6><p>${ti.why}${inFaq ? ' This question is also in the page’s FAQ structured data, which helps Google and AI search tools read and quote the answer.' : ''}</p>
+      <h6>Why this keyword</h6><p>${d.why}</p>${d.note ? `<div class="st-note">${d.note}</div>` : ''}`;
+    if (active && active !== el) active.classList.remove('tip-on');
+    active = el; el.classList.add('tip-on');
+    tip.classList.add('on'); tip.setAttribute('aria-hidden','false');
+    place(el);
+  }
+  function place(el){
+    const r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight, m = 12;
+    let x = r.left + r.width/2 - tw/2; x = Math.max(16, Math.min(x, innerWidth - tw - 16));
+    let y = r.top - th - m;
+    if (el.classList.contains('giant')) y = r.bottom + m;
+    else if (y < 80) y = r.bottom + m;
+    if (y + th > innerHeight - 10) y = Math.max(10, innerHeight - th - 10);
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function hide(){ tip.classList.remove('on'); tip.setAttribute('aria-hidden','true'); if (active) active.classList.remove('tip-on'); active = null; }
+  kws.forEach(el => {
+    el.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') show(el); });
+    el.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') hide(); });
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', hide);
+    el.addEventListener('click', e => {
+      if (!on) return;
+      if (lastType !== 'mouse'){
+        if (active === el){ hide(); return; }
+        e.preventDefault(); e.stopPropagation(); show(el);
+      }
+    }, true);
+  });
+  let lastType = 'mouse';
+  document.addEventListener('pointerdown', e => { lastType = e.pointerType || 'mouse'; if (active && !e.target.closest('.kw')) hide(); }, true);
+  addEventListener('scroll', () => { if (active) hide(); }, {passive:true});
+  addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  tog.addEventListener('click', () => setOn(!on));
+  addEventListener('hashchange', () => setTimeout(count, 900));
+  window.__seoCount = count;
+  setOn(on);
+})();
+
 /* ---------- Sydney time ---------- */
 function sydney(){
   try{
@@ -1638,3 +1894,6 @@ if (RM){ loader.remove(); boot(); }
 else setTimeout(() => { loader.classList.add('out'); boot(); setTimeout(() => loader.remove(), 1200); }, 1850);
 })();
 </script>
+
+</body>
+</html>
